@@ -28,16 +28,6 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideNoteDao(db: NoteDatabase): NoteDao {
-        return db.noteDao()
-    }
-
-    @Provides
-    fun provideLabelDao(db: NoteDatabase): LabelDao {
-        return db.labelDao()
-    }
-
-    @Provides
     fun provideArchivedNoteDao(db: NoteDatabase): ArchivedNoteDao {
         return db.archivedNoteDao()
     }

@@ -9,12 +9,12 @@ import androidx.room.PrimaryKey
     tableName = "archived_notes",
     foreignKeys = [ForeignKey(
         entity = Note::class,
-        parentColumns = ["id"],
+        parentColumns = ["noteId"],
         childColumns = ["note_id"],
         onDelete = ForeignKey.CASCADE
     )]
 )
 data class ArchivedNote(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo(name = "note_id") val noteId: Int
+    @ColumnInfo(name = "note_id") val noteId: Long
 )

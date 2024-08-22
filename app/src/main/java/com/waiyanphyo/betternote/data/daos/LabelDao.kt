@@ -1,16 +1,16 @@
 package com.waiyanphyo.betternote.data.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.waiyanphyo.betternote.data.entities.Label
+import androidx.room.Transaction
+import com.waiyanphyo.betternote.data.LabelWithNote
 
 @Dao
 interface LabelDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(label: Label)
 
+
+    @Transaction
     @Query("SELECT * FROM labels")
-    suspend fun getAllLabels(): List<Label>
+    fun getLabelsWithNotes(): LiveData<List<LabelWithNote>>
 }
